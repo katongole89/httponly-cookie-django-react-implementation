@@ -23,24 +23,66 @@ const Login = () => {
     }
 
 
-    const loginRequest = async () => {
-        try {
-          const res = await axios.post(
-            "http://localhost:8000/api/test-apis/login/",
-            {
-              username:state.username,
-              password:state.password,
-            },
-            { withCredentials: true }
-          );
-          console.log(res.data);
+    // const loginRequest = async () => {
+    //     try {
+    //       const res = await axios.post(
+    //         "http://127.0.0.1:8000/api/test-apis/login/",
+    //         {
+    //           username:state.username,
+    //           password:state.password,
+    //         },
+    //         { withCredentials: true }
+    //       );
+    //       console.log(res.data);
           
-        } catch (error) {
-          console.log(error);
-        }
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //     setState({...state, isSubmitting:false})
+
+    // };
+
+    // const loginRequest = async () => {
+    //     try {
+    //       const res = await axios.post(
+    //         "http://127.0.0.1:8000/api/test-apis/login/",
+    //         {
+    //           username:state.username,
+    //           password:state.password,
+    //         },
+    //         { withCredentials: true }
+    //       );
+    //       console.log(res.data);
+          
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //     setState({...state, isSubmitting:false})
+
+    // };
+
+    const loginRequest = async () => {
+        fetch("http://127.0.0.1:8000/api/test-apis/login/",
+        {
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'credentials' : 'include'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                username:state.username,
+                password:state.password,
+              },)
+        })
+        .then(function(res){ console.log(res) })
+        .catch(function(res){ console.log(res) })
         setState({...state, isSubmitting:false})
 
-      };
+    };
+
+    
+    
 
     useEffect(()=>{
         console.log(state)
