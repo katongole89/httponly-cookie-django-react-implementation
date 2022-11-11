@@ -62,7 +62,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {
   'DEFAULT_AUTHENTICATION_CLASSES': (
-      'cookieapp.authenticate.CustomAuthentication',
+      'TestApis.authenticate.CustomAuthentication',
   ),
 }
 
