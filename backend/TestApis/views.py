@@ -33,6 +33,7 @@ class LoginView(APIView):
                     samesite = settings.SIMPLE_JWT['AUTH_COOKIE_SAMESITE']
                 )
                 csrf.get_token(request)
+                print(data)
                 response.data = {"Success" : "Login successfully","data":data}
                 return response
             else:
